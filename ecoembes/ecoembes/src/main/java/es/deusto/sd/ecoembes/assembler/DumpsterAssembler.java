@@ -2,6 +2,8 @@ package es.deusto.sd.ecoembes.assembler;
 import es.deusto.sd.ecoembes.dto.DumpsterDTO;
 import es.deusto.sd.ecoembes.entity.Dumpster;
 
+
+//vdbdiwi
 public class DumpsterAssembler {
     private static final DumpsterAssembler instance = new DumpsterAssembler();
 
