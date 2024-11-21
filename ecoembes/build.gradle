@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.4'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'es.deusto.sd.ecoembes'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Dependencias básicas de Spring Boot
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    
+    // Dependencia para pruebas
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Si usas JPA para bases de datos, por ejemplo:
+    // implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Si necesitas conectar con una base de datos en memoria como H2
+    // implementation 'com.h2database:h2'
+
+    // Agrega más dependencias que necesites en tu proyecto
+}
+
+springBoot {
+    mainClass = 'es.deusto.sd.ecoembes.EcoembesApplication'
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-parameters"
+}
+
