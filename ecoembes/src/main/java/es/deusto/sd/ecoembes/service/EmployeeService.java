@@ -2,9 +2,7 @@ package es.deusto.sd.ecoembes.service;
 
 import org.springframework.stereotype.Service;
 import es.deusto.sd.ecoembes.assembler.EmployeeAssembler;
-import es.deusto.sd.ecoembes.entity.Dumpster;
 import es.deusto.sd.ecoembes.entity.Employee;
-import es.deusto.sd.ecoembes.dto.DumpsterDTO;
 import es.deusto.sd.ecoembes.dto.EmployeeDTO;
 
 import java.util.ArrayList;
@@ -12,13 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-//jdijdid
 @Service
 public class EmployeeService {
 
     private final Map<String, Employee> employees = new HashMap<>();
-    
 
     public EmployeeService() {
         // Adding a sample employee for testing
@@ -45,21 +40,7 @@ public class EmployeeService {
         return EmployeeAssembler.getInstance().toDTO(employee);
     }
 
-    public EmployeeDTO updateEmployee(String id, EmployeeDTO employeeDTO) {
-        Employee existingEmployee = employees.get(id);
-        if (existingEmployee != null) {
-            existingEmployee.setName(employeeDTO.getName());
-            existingEmployee.setRole(employeeDTO.getRole());
-            return EmployeeAssembler.getInstance().toDTO(existingEmployee);
-        }
-        return null;
-    }
-
     public boolean deleteEmployee(String id) {
         return employees.remove(id) != null;
-    }
-    
-    public boolean addDumpstersToPlant(String employeeId , String plantId, List<DumpsterDTO> list) {
-    	return false;
     }
 }

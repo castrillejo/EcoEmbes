@@ -1,9 +1,7 @@
 package es.deusto.sd.ecoembes.facade;
 
 import es.deusto.sd.ecoembes.service.EmployeeService;
-import es.deusto.sd.ecoembes.dto.DumpsterDTO;
 import es.deusto.sd.ecoembes.dto.EmployeeDTO;
-import es.deusto.sd.ecoembes.entity.Dumpster;
 
 import java.util.List;
 
@@ -32,10 +30,8 @@ public class EmployeeController {
 
     // Get a specific employee by ID
     @GetMapping("/{id}")
-    public ResponseEntity<EmployeeDTO> getEmployee(@PathVariable String id) {
-        EmployeeDTO employee = employeeService.getEmployeeById(id);
-        return employee != null ? new ResponseEntity<>(employee, HttpStatus.OK)
-                                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public EmployeeDTO getEmployee(@PathVariable("id") String id) {
+        return employeeService.getEmployeeById(id);
     }
 
     // Create a new employee
@@ -45,50 +41,11 @@ public class EmployeeController {
         return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
     }
 
-    // Update an existing employee
-    @PutMapping("/{id}")
-    public ResponseEntity<EmployeeDTO> updateEmployee(@PathVariable String id, @RequestBody EmployeeDTO employeeDTO) {
-        EmployeeDTO updatedEmployee = employeeService.updateEmployee(id, employeeDTO);
-        return updatedEmployee != null ? new ResponseEntity<>(updatedEmployee, HttpStatus.OK)
-                                       : new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
     // Delete an employee
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEmployee(@PathVariable String id) {
+    public ResponseEntity<Void> deleteEmployee(@PathVariable("id") String id) {
         boolean deleted = employeeService.deleteEmployee(id);
         return deleted ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
                        : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    
-    //Add a list of dumpsters to a assigned plant
-    @PutMapping("/{id}/assign-dumpsters")
-    public List<DumpsterDTO> addDumpstersToPlant(String employeeId , String plantId, List<DumpsterDTO> list) {
-		
-    	
-    	
-    	
-    	return list;
-    }
-    
-    
-    
-    
-    
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

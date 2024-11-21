@@ -31,7 +31,10 @@ springBoot {
     mainClass = 'es.deusto.sd.ecoembes.EcoembesApplication'
 }
 
+// Configuración de compatibilidad con Java 21
+sourceCompatibility = '21'
+targetCompatibility = '21'
+
 tasks.withType(JavaCompile) {
     options.compilerArgs << "-parameters"
 }
-

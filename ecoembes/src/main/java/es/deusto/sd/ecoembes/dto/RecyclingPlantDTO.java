@@ -1,16 +1,12 @@
 package es.deusto.sd.ecoembes.dto;
 
 import java.util.Date;
-import java.util.List;
-
-import es.deusto.sd.ecoembes.entity.Dumpster;
 
 public class RecyclingPlantDTO {
     private String id;
     private String name;
     private double capacity;
     private Date availableDate;
-    private List<Dumpster> dumpstersList;
 
     public RecyclingPlantDTO() {}
 
@@ -53,12 +49,5 @@ public class RecyclingPlantDTO {
 		this.availableDate = availableDate;
 	}
 
-	public List<Dumpster> getDumpstersList() {
-		return dumpstersList;
-	}
-
-	public void setDumpstersList(List<Dumpster> dumpstersList) {
-		this.dumpstersList = dumpstersList;
-	}
-
 }
+

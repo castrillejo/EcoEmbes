@@ -1,14 +1,12 @@
 package es.deusto.sd.ecoembes.entity;
 
 import java.util.Date;
-import java.util.List;
 
 public class RecyclingPlant {
     private String id;
     private String name;
     private double capacity;
     private Date availableDate;
-    private List<Dumpster> dumpstersList;
 
     public RecyclingPlant(String id, String name, double capacity, Date availableDate) {
         this.id = id;
@@ -49,11 +47,4 @@ public class RecyclingPlant {
 		this.availableDate = availableDate;
 	}
 
-	public List<Dumpster> getDumpstersList() {
-		return dumpstersList;
-	}
-
-	public void setDumpstersList(List<Dumpster> dumpstersList) {
-		this.dumpstersList = dumpstersList;
-	}
 }

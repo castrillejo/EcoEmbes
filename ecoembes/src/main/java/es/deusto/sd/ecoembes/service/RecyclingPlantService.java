@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import es.deusto.sd.ecoembes.assembler.RecyclingPlantAssembler;
 import es.deusto.sd.ecoembes.entity.RecyclingPlant;
 import es.deusto.sd.ecoembes.dto.RecyclingPlantDTO;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,11 +23,12 @@ public class RecyclingPlantService {
         return RecyclingPlantAssembler.getInstance().toDTO(plant);
     }
 
-    public void updateCapacity(String id, double newCapacity) {
+    // Nuevo método para obtener la capacidad de una planta
+    public double getPlantCapacityById(String id) {
         RecyclingPlant plant = plants.get(id);
         if (plant != null) {
-            plant.setCapacity(newCapacity);
+            return plant.getCapacity();
         }
+        throw new IllegalArgumentException("Plant with ID " + id + " not found.");
     }
 }
-
